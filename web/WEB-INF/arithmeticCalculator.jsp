@@ -15,11 +15,11 @@
         <h1>Arithmetic Calculator</h1>
         <form method="post" action="arithmetic">
             <label>First: </label>
-            <input type="text" name="first_value" value="">
-            <br>
+            <input type="text" name="firstNumber">
+            <br />
             <label>Second: </label>
-            <input type="text" name="second_value" value="">
-            <br>
+            <input type="text" name="secondNumber">
+            <br />
             <input type="submit" name="operation" value="+">
             <input type="submit" name="operation" value="-">
             <input type="submit" name="operation" value="*">
