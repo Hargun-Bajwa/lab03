@@ -31,41 +31,33 @@ public class arithmeticCalculatorServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);
         return;
         }
-      //initializing variables to use for validation
-        int first;
-        int second;
-        try {
-            first = Integer.parseInt(firstNumber);
-            second = Integer.parseInt(secondNumber);
-        } 
-        catch (NumberFormatException e) {
-            request.setAttribute("result", "Invalid");
-           getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);
-           return;
-        }
+      
         
         
-        first = Integer.parseInt(firstNumber);
-        second = Integer.parseInt(secondNumber);
-       int result = 0;
+        
+        int first = Integer.parseInt(firstNumber);
+        int second = Integer.parseInt(secondNumber);
+       int result;
        
        String operation = request.getParameter("operation");
        
-       if(operation .equals("+")){
-           result = first + second;
-       }
-       else if(operation .equals("-")){
-           result = first - second;
-       }
-       else if(operation .equals("*")){
-           result = first * second;
-       }
+        // chec the opearion and do the calculations
+        switch (operation) {
+            case "+":
+                result = first + second;
+                break;
+            case "-":
+                result = first - second;
+                break;
+            case "*":
+                result = first * second;
+                break;
+            default:
+                result = first % second;
+                break;
+        }
        
-       else {
-           result = first % second;
-       }
-       
-
+      // send back the results
        request.setAttribute("result", result);
       
        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticCalculator.jsp").forward(request, response);

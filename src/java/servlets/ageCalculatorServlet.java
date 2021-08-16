@@ -37,6 +37,8 @@ public class ageCalculatorServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
         return;
         }
+        
+        
         //initializing a age variable to use for validation
         int inputAge;
         //invalid parameter type check
